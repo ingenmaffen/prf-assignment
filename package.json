@@ -1,0 +1,31 @@
+{
+  "name": "prf-assignment",
+  "version": "1.0.0",
+  "description": "Assignment for Programrendszerek fejlesztése @ SZTE TTIK (2019-20/2)",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "watch": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ingenmaffen/prf-assignment.git"
+  },
+  "keywords": [
+    "SZTE",
+    "assignment"
+  ],
+  "author": "Rabi Róbert <ingenmaffen@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ingenmaffen/prf-assignment/issues"
+  },
+  "homepage": "https://github.com/ingenmaffen/prf-assignment#readme",
+  "dependencies": {
+    "express": "4.17.1",
+    "mongoose": "5.9.10"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.3"
+  }
+}
