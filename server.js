@@ -1,12 +1,11 @@
 /* imports */
+require("./db/recipeSchema");
+const initDb = require("./db/initDb.js");
+const dbUrl = require("./common").dbUrl;
+
 const express = require("express");
 const mongoose = require("mongoose");
 const app = express();
-const initDb = require("./db/initDb.js");
-const insterData = require("./db/addRecipe");
-const listData = require("./db/listRecipes");
-const dbUrl = require("./common").dbUrl;
-require("./db/models/recipeSchema");
 
 /* db */
 mongoose.connect(dbUrl);
@@ -14,8 +13,6 @@ mongoose.connect(dbUrl);
 mongoose.connection.on("connected", () => {
   console.log("Connected to MongoDB!");
   initDb();
-  //insterData();
-  listData();
 });
 
 mongoose.connection.on("error", (err) => {

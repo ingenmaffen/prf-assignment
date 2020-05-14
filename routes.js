@@ -35,4 +35,14 @@ router.route("/new-recipe").get((req, res) => {
   });
 });
 
+router.route("/recipe/:repiceId").get((req, res) => {
+  recipeModel.findOne({}).exec((err, recipe) => {
+    if (err) {
+      throw err;
+    }
+    console.log(res);
+    return res.status(200).send(recipe);
+  });
+});
+
 module.exports = router;
