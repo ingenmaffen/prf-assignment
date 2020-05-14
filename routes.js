@@ -1,9 +1,11 @@
 const router = require("express").Router();
 const mongoose = require("mongoose");
+const bodyParser = require("body-parser");
 const recipeModel = mongoose.model("recipe");
 
 // TODO: post
-router.route("/new-recipe").get((req, res) => {
+router.route("/new-recipe").post((req, res) => {
+  console.log(req.body);
   const recipe = recipeModel({
     name: "pancake",
     category: "dessert",

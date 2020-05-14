@@ -5,6 +5,7 @@ import { ViewComponent } from './view/view.component';
 import { EditComponent } from './edit/edit.component';
 import { Routes, RouterModule } from '@angular/router';
 import { RecipesComponent } from './recipes.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 const routes: Routes = [
   {
@@ -30,6 +31,11 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [ListComponent, ViewComponent, EditComponent],
-  imports: [CommonModule, RouterModule.forChild(routes)],
+  imports: [
+    CommonModule,
+    RouterModule.forChild(routes),
+    FormsModule,
+    ReactiveFormsModule,
+  ],
 })
 export class RecipesModule {}

@@ -5,6 +5,8 @@ const dbUrl = require("./common").dbUrl;
 
 const express = require("express");
 const mongoose = require("mongoose");
+const bodyParser = require("body-parser");
+var cors = require("cors");
 const app = express();
 
 /* db */
@@ -21,6 +23,10 @@ mongoose.connection.on("error", (err) => {
 
 /* routing */
 app.get("/", (req, res) => res.send("Hello World!"));
+
+app.use(cors());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use("/api", require("./routes"));
 
