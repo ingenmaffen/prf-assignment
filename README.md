@@ -12,6 +12,20 @@ MongoDB indítása Dockerrel:
 docker run --name mongo -v $PWD/mongo:/etc/mongo -p 27017:27017 -d mongo
 ```
 
+Vagy későbbi indítás során elég:
+
+```shell
+docker start mongo
+```
+
+Megjegyzés: Linux esetén szükséges volt a
+
+```shell
+sudo
+```
+
+a parancsok elé.
+
 Szerver dependenciák telepítése (első futtatáskor):
 
 ```shell

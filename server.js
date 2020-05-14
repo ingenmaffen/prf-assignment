@@ -2,12 +2,19 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const app = express();
+const initDb = require("./db/initDb.js");
+const insterData = require("./db/addRecipe");
+const listData = require("./db/listRecipes");
+const dbUrl = require("./common").dbUrl;
 
 /* db */
-mongoose.connect("mongodb://localhost:27017");
+mongoose.connect(dbUrl);
 
 mongoose.connection.on("connected", () => {
   console.log("Connected to MongoDB!");
+  initDb();
+  //insterData();
+  listData();
 });
 
 mongoose.connection.on("error", (err) => {
