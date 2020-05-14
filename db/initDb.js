@@ -8,7 +8,7 @@ module.exports = function initDb() {
       throw err;
     }
     const dbo = db.db(common.dbName);
-    dbo.createCollection("recipe", function (err, res) {
+    dbo.createCollection("recipes", function (err, res) {
       if (err) {
         throw err;
       }
