@@ -1,12 +1,25 @@
 <div class="recipe-list-container">
-  <div *ngFor="let recipe of recipeList" class="recipe-list-item-container">
-    <mat-card>
-      <button
-        class="recipe-item-nav-button"
-        (click)="navigateToView(recipe._id)"
-      >
-        {{ recipe.name }}
-      </button>
-    </mat-card>
-  </div>
+  <mat-card
+    *ngFor="let recipe of recipeList"
+    class="recipe-list-item-container"
+  >
+    <div class="recipe-inner-container">
+      <div class="recipe-image-container">
+        <img
+          class="clickable"
+          height="280"
+          src="{{ recipe.image ? recipe.image : placeholderImage }}"
+          (click)="navigateToView(recipe.id)"
+        />
+      </div>
+      <div class="recipe-information-container">
+        <button
+          class="recipe-item-nav-button clickable"
+          (click)="navigateToView(recipe.id)"
+        >
+          {{ recipe.name }}
+        </button>
+      </div>
+    </div>
+  </mat-card>
 </div>

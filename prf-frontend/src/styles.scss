@@ -29,4 +29,8 @@ $prf-app-theme: mat-light-theme(
 
 body {
   margin: 0;
+
+  .clickable {
+    cursor: pointer;
+  }
 }

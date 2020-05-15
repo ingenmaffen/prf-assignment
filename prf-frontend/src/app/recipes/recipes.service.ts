@@ -9,8 +9,10 @@ import { environment } from 'src/environments/environment';
 export class RecipesService {
   constructor(private readonly http: HttpClient) {}
 
-  getList(): Observable<RecipeItem[]> {
-    return this.http.get<RecipeItem[]>(`${environment.serverUrl}recipe/list`);
+  getList(): Observable<RecipeListItem[]> {
+    return this.http.get<RecipeListItem[]>(
+      `${environment.serverUrl}recipe/list`
+    );
   }
 
   getRecipe(id: string): Observable<RecipeItem> {
@@ -20,6 +22,12 @@ export class RecipesService {
   postRecipe(recipe: RecipeEditModel): Observable<any> {
     return this.http.post(`${environment.serverUrl}new-recipe`, recipe);
   }
+}
+
+export interface RecipeListItem {
+  id: string;
+  image: string;
+  name: string;
 }
 
 export interface RecipeItem {

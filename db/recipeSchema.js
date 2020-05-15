@@ -12,6 +12,7 @@ const recipeSchema = new Schema(
         ingredientName: String,
       },
     ],
+    image: String,
     steps: [String],
     creationDate: Date,
     reviews: [

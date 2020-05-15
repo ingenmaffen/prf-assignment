@@ -1,11 +1,31 @@
 .recipe-list-container {
   .recipe-list-item-container {
     margin: 20px 10px;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.05);
 
-    .recipe-item-nav-button {
-      border: none;
-      background: none;
-      color: #0277bd;
+    .recipe-inner-container {
+      height: 300px;
+
+      .recipe-image-container {
+        width: 25%;
+        display: inline-block;
+      }
+
+      .recipe-information-container {
+        width: calc(75% - 20px);
+        display: inline-block;
+        height: calc(100% - 20px);
+        vertical-align: top;
+        padding: 10px;
+
+        .recipe-item-nav-button {
+          border: none;
+          background: none;
+          color: #0277bd;
+          font-size: 2rem;
+        }
+      }
     }
   }
 }

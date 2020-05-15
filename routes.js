@@ -27,11 +27,19 @@ router.route("/new-recipe").post((req, res) => {
 });
 
 router.route("/recipe/list").get((req, res) => {
-  recipeModel.find({}).exec((err, recipe) => {
+  recipeModel.find({}).exec((err, recipes) => {
     if (err) {
       throw err;
     }
-    return res.status(200).send(recipe);
+    return res.status(200).send(
+      recipes.map((recipe) => {
+        return {
+          id: recipe._id,
+          name: recipe.name,
+          image: recipe.image,
+        };
+      })
+    );
   });
 });
 

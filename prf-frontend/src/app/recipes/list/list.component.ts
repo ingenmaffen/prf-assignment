@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { RecipesService, RecipeItem } from '../recipes.service';
+import { RecipesService, RecipeListItem } from '../recipes.service';
 
 @Component({
   selector: 'app-list',
@@ -9,7 +9,9 @@ import { RecipesService, RecipeItem } from '../recipes.service';
   styleUrls: ['./list.component.scss'],
 })
 export class ListComponent implements OnInit {
-  recipeList: RecipeItem[];
+  placeholderImage: string =
+    '../../../assets/icons/insert_photo-black-24dp.svg';
+  recipeList: RecipeListItem[];
 
   constructor(private service: RecipesService, private router: Router) {}
 
