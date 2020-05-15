@@ -1,1 +1,9 @@
-<router-outlet></router-outlet>
+<mat-toolbar color="primary">
+  <button class="main-nav-button" (click)="navigateToList()">
+    <img src="../../assets/icons/local_dining-white-24dp.svg" />
+    <span>Receptkönyv</span>
+  </button>
+</mat-toolbar>
+<div class="content-container">
+  <router-outlet></router-outlet>
+</div>
