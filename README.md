@@ -6,6 +6,8 @@ The README will be in Hungarian from this so if you would like to see an English
 
 ## Setup
 
+### MongoDB
+
 MongoDB indítása Dockerrel:
 
 ```shell
@@ -26,6 +28,8 @@ sudo
 
 a parancsok elé.
 
+### Node.js
+
 Szerver dependenciák telepítése (első futtatáskor):
 
 ```shell
@@ -39,6 +43,26 @@ npm run watch
 ```
 
 Szerver indítása (production környezetben):
+
+```shell
+npm start
+```
+
+### Angular
+
+Az Angular alkalmazás a ./prf-frontend könyvtárban található, ezért hogy azon tudjunk dolgozni, előbb át kell navigálni oda a következő paranccsal:
+
+```shell
+cd prf-frontend
+```
+
+Majd itt is telepítsük a dependenciákat:
+
+```shell
+npm install
+```
+
+Ez után pedig a frontend indítható (fejlesztői módban):
 
 ```shell
 npm start
