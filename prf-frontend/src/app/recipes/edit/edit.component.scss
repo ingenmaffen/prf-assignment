@@ -1,0 +1,48 @@
+.recipe-editor-container {
+  display: flex;
+
+  .placeholder {
+    flex: 1;
+  }
+
+  .card {
+    flex: 2;
+    margin: 20px 10px;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.05);
+
+    .inline-input {
+      margin-right: 10px;
+    }
+
+    .quantity-input {
+      width: 82px;
+    }
+
+    .unit-input {
+      width: 104px;
+    }
+
+    .ingredient-name-input {
+      width: 124px;
+    }
+
+    .form-array-button {
+      border: none;
+      background: none;
+      color: #0277bd;
+      font-size: 1.5rem;
+      margin-right: 10px;
+    }
+  }
+
+  .custom-upload-button {
+    display: block;
+    margin-top: 10px;
+    width: 52px;
+  }
+
+  .form-upload-button {
+    display: none;
+  }
+}

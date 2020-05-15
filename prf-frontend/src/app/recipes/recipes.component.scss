@@ -8,3 +8,16 @@
 .content-container {
   padding: 10px;
 }
+
+.add-recipe-button {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  border: 3px solid white;
+  background: #0277bd;
+  color: white;
+  padding: 10px;
+  font-weight: 600;
+  border-radius: 15px;
+  font-size: 0.8rem;
+}

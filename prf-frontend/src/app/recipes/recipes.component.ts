@@ -14,4 +14,8 @@ export class RecipesComponent implements OnInit {
   navigateToList(): void {
     this.router.navigate(['/recipes/list']);
   }
+
+  navigateToNew(): void {
+    this.router.navigate(['/recipes/new']);
+  }
 }

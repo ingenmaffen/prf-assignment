@@ -9,6 +9,12 @@ import { environment } from 'src/environments/environment';
 export class RecipesService {
   constructor(private readonly http: HttpClient) {}
 
+  getRecipeCategories(): Observable<RecipeCategory[]> {
+    return this.http.get<RecipeCategory[]>(
+      `${environment.serverUrl}enums/recipe-categories`
+    );
+  }
+
   getList(): Observable<RecipeListItem[]> {
     return this.http.get<RecipeListItem[]>(
       `${environment.serverUrl}recipe/list`
@@ -42,6 +48,11 @@ export interface RecipeItem {
 }
 
 export interface RecipeEditModel {}
+
+export interface RecipeCategory {
+  name: string;
+  value: 'breakfast' | 'soup' | 'mainDish' | 'salad' | 'dessert';
+}
 
 interface Ingredient {
   ingredientName: string;

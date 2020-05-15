@@ -5,11 +5,12 @@
     background: rgba(0, 0, 0, 0.05);
 
     .recipe-inner-container {
-      height: 300px;
+      height: 160px;
 
       .recipe-image-container {
         width: 25%;
         display: inline-block;
+        text-align: center;
       }
 
       .recipe-information-container {

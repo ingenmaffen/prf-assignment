@@ -3,18 +3,11 @@ const mongoose = require("mongoose");
 const recipeModel = mongoose.model("recipe");
 
 router.route("/new-recipe").post((req, res) => {
-  console.log(req.body);
   const recipe = recipeModel({
-    name: "tomato soup",
-    category: "soup",
-    ingredients: [
-      {
-        unit: "pc",
-        quantity: 1,
-        ingredientName: "tomato",
-      },
-    ],
-    steps: ["boil water", "put tomato in it", "???", "profit"],
+    name: req.body.name,
+    category: req.body.category,
+    ingredients: req.body.ingredients,
+    steps: req.body.steps,
     creationDate: new Date(),
   });
   recipe.save((error) => {
@@ -50,6 +43,31 @@ router.route("/recipe/:recipeId").get((req, res) => {
     }
     return res.status(200).send(recipe);
   });
+});
+
+router.route("/enums/recipe-categories").get((req, res) => {
+  return res.status(200).send([
+    {
+      value: "breakfast",
+      name: "Reggeli",
+    },
+    {
+      value: "soup",
+      name: "Leves",
+    },
+    {
+      value: "mainDish",
+      name: "Főétel",
+    },
+    {
+      value: "salad",
+      name: "Saláta",
+    },
+    {
+      value: "dessert",
+      name: "Desszert",
+    },
+  ]);
 });
 
 module.exports = router;
