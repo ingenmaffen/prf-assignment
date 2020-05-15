@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { MatCardModule } from '@angular/material/card';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
@@ -27,6 +28,10 @@ const routes: Routes = [
         path: 'edit',
         component: EditComponent,
       },
+      {
+        path: 'new',
+        component: EditComponent,
+      },
     ],
   },
 ];
@@ -38,6 +43,7 @@ const routes: Routes = [
     RouterModule.forChild(routes),
     FormsModule,
     ReactiveFormsModule,
+    MatCardModule,
     MatToolbarModule,
   ],
 })

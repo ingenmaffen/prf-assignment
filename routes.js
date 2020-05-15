@@ -1,31 +1,20 @@
 const router = require("express").Router();
 const mongoose = require("mongoose");
-const bodyParser = require("body-parser");
 const recipeModel = mongoose.model("recipe");
 
-// TODO: post
 router.route("/new-recipe").post((req, res) => {
   console.log(req.body);
   const recipe = recipeModel({
-    name: "pancake",
-    category: "dessert",
+    name: "tomato soup",
+    category: "soup",
     ingredients: [
-      {
-        unit: "l",
-        quantity: 0.5,
-        ingredientName: "milk",
-      },
       {
         unit: "pc",
         quantity: 1,
-        ingredientName: "egg",
+        ingredientName: "tomato",
       },
     ],
-    steps: [
-      "mix ingredients",
-      "get a frying pan",
-      "fry stuff in pan until it's cake",
-    ],
+    steps: ["boil water", "put tomato in it", "???", "profit"],
     creationDate: new Date(),
   });
   recipe.save((error) => {
@@ -37,12 +26,20 @@ router.route("/new-recipe").post((req, res) => {
   });
 });
 
-router.route("/recipe/:repiceId").get((req, res) => {
-  recipeModel.findOne({}).exec((err, recipe) => {
+router.route("/recipe/list").get((req, res) => {
+  recipeModel.find({}).exec((err, recipe) => {
     if (err) {
       throw err;
     }
-    console.log(res);
+    return res.status(200).send(recipe);
+  });
+});
+
+router.route("/recipe/:recipeId").get((req, res) => {
+  recipeModel.findById(req.params.recipeId).exec((err, recipe) => {
+    if (err) {
+      throw err;
+    }
     return res.status(200).send(recipe);
   });
 });
