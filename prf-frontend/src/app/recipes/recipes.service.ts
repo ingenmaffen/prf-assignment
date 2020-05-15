@@ -35,9 +35,16 @@ export interface RecipeItem {
   name: string;
   category: 'breakfast' | 'soup' | 'mainDish' | 'salad' | 'dessert';
   steps: string[];
-  ingredients: any[];
+  ingredients: Ingredient[];
   creationDate: Date;
   reviews: any[];
+  image: string;
 }
 
 export interface RecipeEditModel {}
+
+interface Ingredient {
+  ingredientName: string;
+  quantity: number;
+  unit: string;
+}

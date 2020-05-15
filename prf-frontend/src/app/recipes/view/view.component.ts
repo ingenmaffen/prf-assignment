@@ -9,6 +9,8 @@ import { RecipeItem, RecipesService } from '../recipes.service';
   styleUrls: ['./view.component.scss'],
 })
 export class ViewComponent implements OnInit {
+  placeholderImage: string =
+    '../../../assets/icons/insert_photo-black-24dp.svg';
   recipeId: string;
   recipeDetails: RecipeItem;
 
@@ -23,8 +25,12 @@ export class ViewComponent implements OnInit {
     if (this.recipeId) {
       this.getRecipe(this.recipeId);
     } else {
-      this.router.navigate(['recipes/list']);
+      this.navigateToList();
     }
+  }
+
+  navigateToList(): void {
+    this.router.navigate(['recipes/list']);
   }
 
   private getRecipe(id): void {

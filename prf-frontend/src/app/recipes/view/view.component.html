@@ -1,1 +1,34 @@
-<p>view works!</p>
+<div class="recipe-view-container">
+  <button (click)="navigateToList()">back</button>
+  <div class="recipe-image-container">
+    <img
+      class="clickable"
+      height="280"
+      src="{{ recipeDetails.image ? recipeDetails.image : placeholderImage }}"
+    />
+  </div>
+  <div class="recipe-information-container">
+    {{ recipeDetails.name }}
+
+    <div class="ingredients-container">
+      <span>Hozzávalók:</span>
+      <ul>
+        <li *ngFor="let ingredient of recipeDetails.ingredients">
+          <span
+            >{{ ingredient.quantity }} {{ ingredient.unit }}
+            {{ ingredient.ingredientName }}</span
+          >
+        </li>
+      </ul>
+    </div>
+    <div class="steps-container">
+      <span>Elkészítés</span>
+      <ul>
+        <li *ngFor="let step of recipeDetails.steps">
+          <span>{{ step }}</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+  TODO: style, layout
+</div>
