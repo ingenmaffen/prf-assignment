@@ -26,7 +26,6 @@ export class ListComponent implements OnInit {
   private getList(): void {
     this.service.getList().subscribe((items) => {
       this.recipeList = items;
-      console.log(this.recipeList);
     });
   }
 }

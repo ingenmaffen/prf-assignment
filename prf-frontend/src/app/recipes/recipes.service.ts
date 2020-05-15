@@ -28,6 +28,13 @@ export class RecipesService {
   postRecipe(recipe: RecipeEditModel): Observable<any> {
     return this.http.post(`${environment.serverUrl}new-recipe`, recipe);
   }
+
+  updateRecipe(recipeId: string, recipe: RecipeEditModel): Observable<any> {
+    return this.http.put(
+      `${environment.serverUrl}update-recipe/${recipeId}`,
+      recipe
+    );
+  }
 }
 
 export interface RecipeListItem {
@@ -44,17 +51,22 @@ export interface RecipeItem {
   ingredients: Ingredient[];
   creationDate: Date;
   reviews: any[];
-  image: string;
+  image?: string;
 }
 
-export interface RecipeEditModel {}
+export interface RecipeEditModel {
+  name: string;
+  category: 'breakfast' | 'soup' | 'mainDish' | 'salad' | 'dessert';
+  ingredients: Ingredient[];
+  steps: string[];
+}
 
 export interface RecipeCategory {
   name: string;
   value: 'breakfast' | 'soup' | 'mainDish' | 'salad' | 'dessert';
 }
 
-interface Ingredient {
+export interface Ingredient {
   ingredientName: string;
   quantity: number;
   unit: string;

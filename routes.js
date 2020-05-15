@@ -15,8 +15,28 @@ router.route("/new-recipe").post((req, res) => {
       return res.status(500).send(error);
     }
     console.log(`${recipe.name} saved!`);
-    return res.status(200).send(`${recipe.name} saved!`);
+    return res.status(200).send(null);
   });
+});
+
+router.route("/update-recipe/:id").put((req, res) => {
+  recipeModel
+    .updateOne(
+      { _id: req.params.id },
+      {
+        name: req.body.name,
+        category: req.body.category,
+        ingredients: req.body.ingredients,
+        steps: req.body.steps,
+      }
+    )
+    .exec((error) => {
+      if (error) {
+        return res.status(500).send(error);
+      }
+      console.log(`${req.params.id} updated!`);
+      return res.status(200).send(null);
+    });
 });
 
 router.route("/recipe/list").get((req, res) => {

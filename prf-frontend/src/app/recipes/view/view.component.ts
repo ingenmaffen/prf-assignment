@@ -33,10 +33,15 @@ export class ViewComponent implements OnInit {
     this.router.navigate(['recipes/list']);
   }
 
+  navigateToEdit(): void {
+    this.router.navigate(['recipes/edit'], {
+      queryParams: { recipeId: this.recipeId },
+    });
+  }
+
   private getRecipe(id): void {
     this.service.getRecipe(id).subscribe((recipe) => {
       this.recipeDetails = recipe;
-      console.log(this.recipeDetails);
     });
   }
 }

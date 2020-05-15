@@ -1,15 +1,19 @@
-<div class="recipe-view-container">
-  <button (click)="navigateToList()">back</button>
-  <div class="recipe-image-container">
+<div *ngIf="recipeDetails" class="recipe-view-container">
+  <button class="primary-button back-button" (click)="navigateToList()">
+    < Vissza
+  </button>
+  <button class="primary-button edit-button" (click)="navigateToEdit()">
+    Szerkesztés
+  </button>
+  <div class="recipe-header-container">
     <img
       class="clickable"
       height="280"
       src="{{ recipeDetails.image ? recipeDetails.image : placeholderImage }}"
     />
+    <h1>{{ recipeDetails.name }}</h1>
   </div>
   <div class="recipe-information-container">
-    {{ recipeDetails.name }}
-
     <div class="ingredients-container">
       <span>Hozzávalók:</span>
       <ul>
@@ -30,5 +34,4 @@
       </ul>
     </div>
   </div>
-  TODO: style, layout
 </div>
