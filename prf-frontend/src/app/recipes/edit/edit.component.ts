@@ -25,6 +25,15 @@ export class EditComponent implements OnInit {
   ngOnInit(): void {
     this.getCategories();
 
+    // TODO: form validation
+    this.formGroup = this.formBuilder.group({
+      name: null,
+      category: null,
+      ingredients: this.formBuilder.array([]),
+      steps: this.formBuilder.array([]),
+      image: null, // TODO: image upload
+    });
+
     this.recipeId = this.activatedRoute.snapshot.queryParams.recipeId;
     if (this.recipeId) {
       // load recipe for edit
@@ -34,17 +43,6 @@ export class EditComponent implements OnInit {
       this.addIngredientToFormArray();
       this.addStepToFormArray();
     }
-
-    // TODO: form validation
-    this.formGroup = this.formBuilder.group({
-      name: null,
-      category: null,
-      ingredients: this.formBuilder.array([]),
-      steps: this.formBuilder.array([]),
-      image: null,
-    });
-
-    // TODO: image upload
   }
 
   sendRecipe(): void {

@@ -67,3 +67,11 @@ Ez után pedig a frontend indítható (fejlesztői módban):
 ```shell
 npm start
 ```
+
+Vagy
+
+```shell
+npm run build
+```
+
+és a szerver indítása után elérhető a localhost:3000/ alatt is.

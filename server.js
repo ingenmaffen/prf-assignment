@@ -3,6 +3,7 @@ require("./db/recipeSchema");
 const initDb = require("./db/initDb.js");
 const dbUrl = require("./common").dbUrl;
 
+const path = require("path");
 const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
@@ -22,13 +23,18 @@ mongoose.connection.on("error", (err) => {
 });
 
 /* routing */
-app.get("/", (req, res) => res.send("Hello World!"));
 
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use("/api", require("./routes"));
+app.use(express.static(path.join("prf-frontend", "dist")));
+app.get("/", (req, res) =>
+  res.sendFile(path.join(__dirname, "prf-frontend", "dist", "index.html"))
+);
+
+// TODO: fix reload issue
 
 /* start */
 app.listen(3000, () => console.log(`App listening on port 3000!`));
