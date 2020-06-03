@@ -9,6 +9,7 @@ import {
   Angulartics2,
 } from 'angulartics2';
 import { MatomoModule } from 'ngx-matomo';
+import { NgxHotjarModule } from 'ngx-hotjar';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -23,9 +24,10 @@ import { RecipesModule } from './recipes/recipes.module';
     AppRoutingModule,
     Angulartics2Module.forRoot(),
     HttpClientModule,
-    RecipesModule,
     MatomoModule,
     MatToolbarModule,
+    NgxHotjarModule.forRoot('1839628'),
+    RecipesModule,
   ],
   providers: [RouterlessTracking, Angulartics2],
   bootstrap: [AppComponent],

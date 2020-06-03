@@ -12,7 +12,7 @@ export class AppComponent implements OnInit {
     private readonly angulartics: Angulartics2Piwik,
     private readonly matomoTracker: MatomoTracker
   ) {
-    angulartics.startTracking();
+    this.angulartics.startTracking();
   }
 
   ngOnInit() {

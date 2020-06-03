@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { RecipesService, RecipeListItem } from '../recipes.service';
+import { NgxHotjarService } from 'ngx-hotjar';
 
 @Component({
   selector: 'app-list',
@@ -13,9 +14,14 @@ export class ListComponent implements OnInit {
     '../../../assets/icons/insert_photo-black-24dp.svg';
   recipeList: RecipeListItem[];
 
-  constructor(private service: RecipesService, private router: Router) {}
+  constructor(
+    private service: RecipesService,
+    private router: Router,
+    private readonly hotjar: NgxHotjarService
+  ) {}
 
   ngOnInit(): void {
+    this.hotjar.virtualPageView('/recipes/list');
     this.getList();
   }
 
