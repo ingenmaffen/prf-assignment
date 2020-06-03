@@ -3,7 +3,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { Angulartics2Module } from 'angulartics2';
+import {
+  Angulartics2Module,
+  RouterlessTracking,
+  Angulartics2,
+} from 'angulartics2';
 import { MatomoModule } from 'ngx-matomo';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -17,13 +21,13 @@ import { RecipesModule } from './recipes/recipes.module';
     BrowserAnimationsModule,
     BrowserModule,
     AppRoutingModule,
-    Angulartics2Module,
+    Angulartics2Module.forRoot(),
     HttpClientModule,
     RecipesModule,
     MatomoModule,
     MatToolbarModule,
   ],
-  providers: [],
+  providers: [RouterlessTracking, Angulartics2],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
